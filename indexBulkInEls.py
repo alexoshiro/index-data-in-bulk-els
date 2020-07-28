@@ -1,13 +1,14 @@
 import json
 from tornado import ioloop, httpclient
 
+file_name = 'example.json'
 elasticsearch_index_to_insert = 'crm_fac'
 id_field = 'id'
 body = ''
 
 request_url = 'http://localhost:9200/' + elasticsearch_index_to_insert + '/_bulk'
 
-with open('els.json') as json_file:
+with open(file_name) as json_file:
     data = json.load(json_file)
     hits = data['hits']['hits']
     count = 0
